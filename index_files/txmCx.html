@@ -1,0 +1,629 @@
+<!-- saved from url=(0064)http://e-office.nuist.edu.cn/nxg_data/txmCx?account=202083290514 -->
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>销假进校二维码</title>
+    <script src="./jquery-1.7.2.min.js.下载"></script>
+    <!--<script type="text/javascript" src="./jkm/js/jquery.qrcode.min.js?v=1"></script>
+-->
+    <script type="text/javascript" src="./qrcode.min.js.下载"></script>
+    <style>
+        @charset "utf-8";
+
+        /* CSS Document */
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .phone_login_btn_2 {
+            width: 100%;
+            height: 126px;
+            background: #6CA7FF;
+            border-radius: 30px;
+            color: #fff;
+            font-size: 30px;
+            margin: 100px auto;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            line-height: 60px;
+        }
+
+        body:before {
+            content: ' ';
+            position: fixed;
+
+            z-index: -1;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: url(../img/bg.png);
+            background-size: 100% auto;
+        }
+
+        .phone_logo_index {
+            width: 100%;
+            text-align: center;
+            padding: 10px 0 10px 0;
+        }
+
+        .phone_logo_login {
+            width: 100%;
+            text-align: center;
+            padding: 10px 0 10px 0;
+            position: absolute;
+            top: 200px;
+        }
+
+        .phone_logo_find {
+            width: 100%;
+            text-align: center;
+            padding: 140px 0 60px 0;
+        }
+
+        .phone_login_box {
+            width: 76%;
+            margin: 0 auto;
+            position: absolute;
+            left: 90px;
+            top: 560px;
+        }
+
+        .phone_login_user {
+            padding-bottom: 60px;
+        }
+
+        .phone_login_user_text {
+            width: 450px;
+            border: 0;
+            border-bottom: 1px solid #8bb3e9;
+            height: 75px;
+            line-height: 75px;
+            background: none;
+            font-size: 32px;
+        }
+
+        .phone_login_user_img {
+            height: 75px;
+            line-height: 75px;
+            vertical-align: middle;
+            margin-right: 28px;
+        }
+
+        .phone_login_yzm_btn {
+            width: 25%;
+            min-height: 40px;
+            background: #ffffff;
+            color: #989898;
+            font-size: 28px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            line-height: 10px;
+            position: absolute;
+            left: 70%;
+            top: 3%;
+            border: none;
+        }
+
+        .phone_login_btn {
+            width: 100%;
+            min-height: 75px;
+            background: #6CA7FF;
+            /*margin-left:5%;*/
+            border-radius: 50px;
+            color: #fff;
+            font-size: 36px;
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            line-height: 75px;
+        }
+
+        .phone_login_btn_1 {
+            width: 100%;
+            height: 120px;
+            background: #6CA7FF;
+            /*margin-left:5%;*/
+            border-radius: 30px;
+            color: #fff;
+            font-size: 36px;
+            margin-top: 40px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            line-height: 120px;
+        }
+
+        .phone_login_btn_2 {
+            width: 100%;
+            height: 126px;
+            background: #6CA7FF;
+            border-radius: 30px;
+            color: #fff;
+            font-size: 30px;
+            margin: 100px auto;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            line-height: 60px;
+        }
+
+        .phone_login_btn_3 {
+            width: 100%;
+            height: 120px;
+            background: #6CA7FF;
+            /*margin-left:5%;*/
+            border-radius: 50px;
+            color: #fff;
+            font-size: 32px;
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            line-height: 120px;
+        }
+
+        .phone_login_btn_4 {
+            width: 100%;
+            height: 120px;
+            background: #6886e6;
+            /*margin-left:5%;*/
+            border-radius: 50px;
+            color: #fff;
+            font-size: 36px;
+            margin-top: 40px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            line-height: 120px;
+        }
+
+        .phone_login_btn_5 {
+            width: 100%;
+            height: 120px;
+            background: #6CA7FF;
+            /*margin-left:5%;*/
+            border-radius: 50px;
+            color: #fff;
+            font-size: 32px;
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            line-height: 60px;
+        }
+
+        .phone_forger {
+            float: left;
+            font-size: 28px;
+            text-decoration: none;
+            padding-top: 15px;
+            color: #004287;
+        }
+
+        .phone_change {
+            float: right;
+            font-size: 28px;
+            text-decoration: none;
+            padding-top: 15px;
+            color: #004287;
+        }
+
+        .phone_login_more {
+            padding-top: 100px;
+        }
+
+        .phone_more_title {
+            width: 100%;
+            height: 70px;
+            line-height: 70px;
+            background: url(../img/xian.png) no-repeat center center;
+            text-align: center;
+            font-size: 34px;
+            color: #004287;
+        }
+
+        .phone_login_nav {
+            float: left;
+            width: 30%;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .phone_login_nav dd {
+            font-size: 28px;
+            color: #004287;
+            line-height: 60px;
+        }
+
+        .phone_login_find_title {
+            width: 100%;
+            text-align: center;
+            color: #004287;
+            font-size: 36px;
+            font-weight: normal;
+            margin-bottom: 100px;
+        }
+
+        .phone_login_find_title1 {
+            width: 100%;
+            text-align: center;
+            color: #004287;
+            font-size: 36px;
+            font-weight: normal;
+            margin-bottom: 40px;
+        }
+
+        .phone_login_find_title p {
+            font-size: 30px;
+            color: #999;
+            line-height: 45px;
+        }
+
+        .phone_find_nav {
+            padding-left: 50px;
+            height: 90px;
+        }
+
+        .phone_find_img {
+            float: left;
+            padding-right: 20px;
+        }
+
+        .phone_find_p {
+            float: left;
+            /*line-height:60px;*/
+            font-size: 32px;
+            color: #004287;
+        }
+
+        .phone_login_find_box {
+            padding-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .phone_login_find_box_text {
+            width: 380px;
+            border: 0;
+            border-bottom: 1px solid #8bb3e9;
+            height: 75px;
+            line-height: 75px;
+            background: none;
+            font-size: 32px;
+            float: left;
+        }
+
+
+        .phone_safe_1 a {
+            float: right;
+            height: 30px;
+            margin-top: -60px;
+            margin-right: 50px;
+            color: #f4c766;
+            font-size: 28px;
+        }
+
+        .phone_safe_2 a {
+            float: right;
+            height: 30px;
+            margin-top: -60px;
+            margin-right: 50px;
+            color: #c2151f;
+            font-size: 28px;
+        }
+
+
+
+
+        .phone_login_nav_1 dd {
+            font-size: 26px;
+            color: #004287;
+            line-height: 60px;
+        }
+
+        .phone_pt_text {
+            font-size: 24px;
+            color: #666;
+            line-height: 50px;
+        }
+
+
+
+
+        @charset "utf-8";
+
+        body {
+            background-color: #fff;
+            padding: 0;
+            margin: 0;
+            font-family: "Microsoft YaHei";
+        }
+
+        input:-moz-placeholder,
+        textarea:-moz-placeholder {
+            color: #fff;
+        }
+
+        input:-ms-input-placeholder,
+        textarea:-ms-input-placeholder {
+            color: #fff;
+        }
+
+        input::-webkit-input-placeholder,
+        textarea::-webkit-input-placeholder {
+            color: #fff;
+        }
+
+        ol,
+        ul,
+        li {
+            padding-left: 0em;
+            list-style: none
+        }
+
+        h2,
+        h3,
+        h4,
+        ul,
+        li,
+        p {
+            padding: 0;
+            margin: 0;
+        }
+
+        input {
+            outline: none;
+        }
+
+        html {
+            padding: 0;
+            margin: 0;
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        .blue-bg {
+            background: url(/nxg_data/images/banner.png) no-repeat left top;
+            background-size: 100% auto;
+        }
+
+        .top-header {
+            line-height: 44px;
+            height: 44px;
+            font-size: 1.3rem;
+            color: #fff;
+            text-align: center;
+            width: 100%;
+        }
+
+        .banner {
+            width: 100%;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .banner img {
+            width: 60%;
+            height: auto;
+
+        }
+
+        .content-box {
+            width: 90%;
+            height: 800px;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(141, 141, 141, 0.4);
+            background: #fff;
+            margin: 0 auto;
+            position: relative;
+            top: -10px;
+        }
+
+        .top-title {
+            width: 90%;
+            margin: 0 auto;
+            line-height: 60px;
+        }
+
+        .top-title h3 {
+            font-size: 1.3rem;
+            color: #333;
+            width: 60%;
+            font-weight: normal;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .link-btn {
+            width: 100%;
+            text-align: center;
+            color: #028aff;
+            text-decoration: none;
+            font-size: 1rem;
+            margin-top: 26px;
+        }
+    </style>
+    <script>
+        jQuery(function () {
+            var state = '';
+            var color = '';
+            var content = "";
+            var informationUrl = '';
+            if (state == 'pass') {
+                content = informationUrl;
+            } else if (state == 'invalid') {
+                content = '当前码无效，请查看申请历史';
+            }
+            console.info(content);
+            jQuery('#output').qrcode({
+                render: "table",
+                width: 240,
+                height: 240,
+                text: content,
+                render: "canvas", //也可以替换为table
+                foreground: "#" + color,
+                background: "#FFF"
+
+            });
+        });
+
+
+        //获取系统时间
+        function showTime() {
+            nowtime = new Date();
+            year = nowtime.getFullYear();//年
+            month = nowtime.getMonth() + 1;//月
+            day = nowtime.getDate();//日
+            hour = nowtime.getHours();//时
+            minutes = nowtime.getMinutes(); //分
+            seconds = nowtime.getSeconds(); //秒
+            //文字增加空格
+            //document.getElementById("div_timer").style = "white-space:pre;";
+            //显示时间
+            document.getElementById("div_timer").innerText = p(month) + "-" + p(day) + "\t\t\t" + p(hour) + ":" + p(minutes) + ":" + p(seconds);
+            // document.getElementById("div_timer_time").innerText = p(hour) + ":" + p(minutes) + ":" + p(seconds);
+        }
+
+        function showDate() {
+            today = new Date();
+            year = today.getFullYear();
+            month = today.getMonth() + 1;
+            day = today.getDate();
+            hour = today.getHours();
+            document.getElementById("div_yxsj").innerText = "有效时间：" + p(year) + "-" + p(month) + "-" + p(day) + " " + p(hour) + ":00至\n" +
+                p(year) + "-" + p(month) + "-" + p(day) + " 22:00";
+        }
+
+        setInterval("showTime()", 1000);
+        setInterval("showDate()", 100);
+
+        //月日时分秒小于10补0
+        function p(s) {
+            return s < 10 ? '0' + s : s;
+        }
+    </script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0
+        }
+
+        .body-content {
+            text-align: center;
+            margin: auto;
+        }
+
+        div {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+
+
+
+
+<body class="blue-bg">
+    <div class="content-box">
+        <div class="body-content" style="width: 260px">
+            <div id="div_bt" style="font-size:20px;">请假出校二维码</div>
+            <div id="div_xm" style="font-weight: bold; font-size: 1rem;padding-top: 30px;">王晴雨 20211201126</div>
+            <div id="div_bm" style="font-weight: bold; font-size: 1rem;">大气科学学院</div>
+            <div id="div_timer" style="font-weight: bold; font-size: 1.5rem;">06-28 16:00:03</div>
+            <div id="div_ewm_p" style="border:solid 5px  #0000FF ;padding: 4px;border-color: #0000FF ">
+                <div id="div_ewm" title="http://e-office.nuist.edu.cn/infoplus/form/e2535605/view/TYWUIMQFRM">
+                    <canvas width="240" height="240" style="display: none;"></canvas><img
+                        src="data:image/png;base64,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"
+                        style="display: block;">
+                </div>
+            </div>
+
+            <!--<div id="div_timer_time"  style="font-weight: bold; font-size: 2.5rem;"></div>-->
+            <div id="div_yxsj" style="font-weight: bold; font-size: 1rem;color: red">有效时间：2022-06-28 11:45至2022-06-28
+                18:00</div>
+            <div id="div_zt" style="font-weight: bold; font-size: 1rem;">审核状态：审核通过</div>
+
+
+        </div>
+    </div>
+    <script type="text/javascript">
+
+
+        //获取url中的参数方法
+        function getParams(name) {
+            //构造一个含有目标参数的正则表达式对象
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            //匹配目标参数
+            var r = window.location.search.substr(1).match(reg);
+            //返回参数
+            if (r != null) {
+                return unescape(r[2]);
+            } else {
+                return null;
+            }
+        }
+
+        var account = getParams("account")//"5591";
+        function fresh() {
+            location.reload();
+        }
+        setInterval(fresh, 1000 * 60 * 5);
+        function createQrCode(text, color) {
+            new QRCode(document.getElementById("div_ewm"), {
+                text: text,
+                colorDark: color,
+                width: 240,
+                height: 240
+            });
+        }
+        $.post("/nxg_data/get/cxData", { account: account }, function (data) {
+            console.log(data);
+            if (null != data.id || undefined != data.id) {
+                $("#div_xm").html(data.XingMing_Name + " " + data.XH)
+                $("#div_bm").html(data.YuanXi_Name)
+                $("#div_bt").html("请假出校二维码").attr("style", "font-size:20px;");
+
+                var color = "gray";
+                if (data.c_color == 1) {
+                    color = "#4e6ab1";
+                    $("#div_ewm_p").attr("style", "border:solid 5px  #0000FF ;padding: 4px;border-color: #0000FF ");
+                } else if (data.c_color == 2) {
+                    color = "gray";
+                    $("#div_ewm_p").attr("style", "border:solid 5px  #4EB16E;padding: 4px;border-color: gray");
+                }
+                var url = "http://e-office.nuist.edu.cn/infoplus/form/e" + data._entry + "/view/" + data._token;
+                console.log(url);
+                $("#div_ewm").html(createQrCode(url, color));
+
+                $("#div_yxsj").html("有效时间：" + data.startTime + "至" + data.endTime);
+
+                $("#div_zt").html("审核状态：" + "审核通过");
+
+            } else {
+                $("#div_ewm").html("您还未正常请假，或请假申请尚未通过审批。").attr("style", "color:red")
+                $("#div_timer").attr("hidden", "true");
+            }
+
+        });
+
+    </script>
+
+
+
+
+
+</body>
+
+</html>
